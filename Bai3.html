@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeGym</title>
+    <style>
+        #idText {
+            margin-top: 20px;
+            width: 125px;
+            height: 20px;
+        }
+        button {
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+        #ketQua {
+            margin-left: 35px;
+            margin-top: 35px;
+        }
+    </style>
+</head>
+<body style="font-family: 'Courier New'">
+<h id = "idMenu"></h> <br>
+<input type="text" id="idText">
+<button type="button"  onclick="KetQua();">Xác nhận</button>
+<h id="ketQua"></h>
+<script>
+    let menu = document.getElementById("idMenu");
+    let ketQua = document.getElementById("ketQua");
+    let htmlStr = "";
+    menu.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;-----MENU---- <br>" ;
+    menu.innerHTML += "1.Góc vuông dưới trái <br>" ;
+    menu.innerHTML += "2.Góc vuông trên trái <br>" ;
+    menu.innerHTML += "3.Góc vuông dưới phải <br>" ;
+    menu.innerHTML += "4.Góc vuông trên phải <br>" ;
+    function KetQua() {
+        var idText = parseInt(document.getElementById("idText").value);
+        var h = parseInt(prompt("Mời bạn nhập vào giá trị của chiều cao"));
+        switch (idText) {
+            case 1 :
+                htmlStr = "<br> <br> ";
+                for (let i = 0 ; i < h ; i++) {
+                    for (let j = 0 ; j <= i ; j ++) {
+                        htmlStr += "*";
+                    }
+                    htmlStr += "<br>";
+                }
+                ketQua.innerHTML = htmlStr;
+                break;
+            case 2:
+                htmlStr = "<br> <br> ";
+                for (let i = h ; i > 0 ; i--) {
+                    for (let j = 1 ; j <= i ; j ++) {
+                        htmlStr += "*";
+                    }
+                    htmlStr += "<br>";
+                }
+                ketQua.innerHTML = htmlStr;
+                break;
+            case 3:
+                htmlStr = "<br> <br> ";
+                for (let i = h ; i > 0 ; i--) {
+                    for (let j = 1 ; j <= h ; j ++) {
+                        if (j < i)
+                            htmlStr += "&nbsp";
+                        else {
+                            htmlStr += "*";
+
+                        }
+                    }
+                    htmlStr += "<br>";
+                }
+                ketQua.innerHTML = htmlStr;
+                break;
+            case 4:
+                htmlStr = "<br> <br> ";
+                for (let i = 1 ; i < h ; i++) {
+                    for (let j = 1 ; j < h ; j++) {
+
+                        if (j<i) htmlStr += "&nbsp";
+                        else htmlStr += "*";
+                    }
+                    htmlStr += "<br>";
+                }
+                ketQua.innerHTML = htmlStr;
+                break;
+
+        }
+
+    }
+
+</script>
+</body>
+</html>
