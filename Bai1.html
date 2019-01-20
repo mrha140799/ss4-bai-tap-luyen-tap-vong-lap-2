@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeGym</title>
+</head>
+<body>
+    <table id="idTable"></table>
+    <!--Bài 1: In dãy Finonaci-->
+    <script>
+        var idTable = document.getElementById("idTable");
+        var htmlStr = "<tr>";
+        function Fibo(number) {
+            if (number == 1 || number == 2) {
+                return 1;
+            } else {
+                return Fibo(number-1) +Fibo(number - 2);
+            }
+        }
+        var n = parseInt(prompt("Mời bạn nhập vào số N "));
+        var fibo = 0;
+        var dem = 0;
+        for (let i = 1; i <= n ; i++ ) {
+            fibo = Fibo(i);
+            dem++ ;
+            htmlStr += "<td>" + fibo + "</td>";
+            if (dem == 20 || dem == 40 || dem == 60 || dem == 80) {
+                htmlStr += "</tr>" + "<tr>";
+            }
+        }
+        htmlStr += "</tr>";
+        idTable.innerHTML = htmlStr;
+    </script>
+    <style>
+        td {
+
+            border: 2px solid black;
+        }
+
+        table {
+            margin-top: 250px;
+            margin-left: 300px;
+            text-align: center;
+            width: 1000px;
+            border: 2px solid black;
+        }
+    </style>
+</body>
+</html>
