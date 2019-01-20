@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeGym</title>
+    <style>
+        #idText {
+            margin-top: 20px;
+            width: 125px;
+            height: 20px;
+        }
+        button {
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+        #ketQua {
+            margin-left: 35px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<!--Bài 5: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.-->
+<h id = "idMenu"></h> <br>
+<input type="text" id="idText">
+<button type="button"  onclick="XuLy();">Xác nhận</button>
+<h id="ketQua"></h>
+</body>
+<script>
+
+    var menu = document.getElementById("idMenu");
+
+    menu.innerHTML = "&nbsp;&nbsp;&nbsp;&nbsp;-----MENU---- <br>" ;
+    menu.innerHTML += "1.Lãi suất theo tháng <br>" ;
+    menu.innerHTML += "2.Lãi suất theo quý <br>" ;
+
+    function XuLy() {
+        var ketQua = document.getElementById("ketQua");
+        var htmlStr = "";
+        var idText = parseInt(document.getElementById("idText").value);
+        var soTienGui ;
+        var laiSuat ;
+        var tongTien = 0 ;
+        switch (idText) {
+            case 1 :
+                soTienGui = parseFloat(prompt("Mời bạn nhập vào số tiền muốn gửi"));
+                laiSuat = parseFloat(prompt("Mời bạn nhập vào lãi suất (theo tháng)"));
+                htmlStr = "<br> <br> ";
+                for (let i = 1; i <= 12; i++) {
+                    tongTien = soTienGui * Math.pow((1 + laiSuat/100), i);
+                    htmlStr += "Tổng số tiền trong ngân hàng tháng " + i + " là: " + tongTien + "</br>";
+                }
+                ketQua.innerHTML = htmlStr;
+                break;
+            case 2 :
+                soTienGui = parseFloat(prompt("Mời bạn nhập vào số tiền muốn gửi"));
+                laiSuat = parseFloat(prompt("Mời bạn nhập vào lãi suất  (theo quý)"));
+                htmlStr = "<br> <br> ";
+                for (let i = 3; i <= 12; i+=3) {
+                    tongTien = soTienGui * Math.pow((1 + laiSuat/100), (i/3));
+                    htmlStr += "Tổng số tiền trong ngân hàng tháng " + i + " là: " + tongTien + "</br>";
+                }
+                ketQua.innerHTML = htmlStr;
+                break;
+        }
+    }
+</script>
+</html>
