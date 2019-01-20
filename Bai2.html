@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeGym</title>
+</head>
+<body>
+<!--Bài 2: Tính giai thừa của một số nguyên dương-->
+<script>
+    var tong = 1;
+    var numbInp = parseInt(prompt("Mời bạn nhập vào số nguyên N : "));
+    for (var i = 1 ; i <= numbInp ; i++) {
+        tong *= i ;
+    }
+    alert(numbInp +"! = " +tong);
+    // function GiaiThua(number) {
+    //     if (number == 0 ) {
+    //         return 1
+    //     }else {
+    //         return number*GiaiThua(number -1);
+    //     }
+    // }
+    // var tong = 0;
+    // var numbInp = parseInt(prompt("Mời bạn nhập vào số nguyên N : "));
+    // tong += GiaiThua(numbInp);
+    // alert(numbInp +"! = " +tong);
+
+
+</script>
+</body>
+</html>
